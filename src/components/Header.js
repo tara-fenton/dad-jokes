@@ -1,18 +1,15 @@
 import React from 'react'
 import Nav from './Nav'
-function Header(props) {
 
-    function handleChange(name){
-        props.handleNav(name)
-    }
+function Header() {
 
     return (
         <header>
             <div className="logo">
                 Dad Jokes
             </div>
-            <div>
-                <Nav handleChange={handleChange}  />
+            <div className='nav'>
+                <Nav  />
             </div>
         </header>
     )

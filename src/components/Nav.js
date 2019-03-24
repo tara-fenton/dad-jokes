@@ -1,15 +1,12 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 
-function Nav(props) {
-
-    function onClick(e){
-        props.handleChange(e.target.name)
-    }
+function Nav() {
     
     return (
         <nav>
-            <button name='search' onClick={onClick}>Search</button>
-            <button name='random'  onClick={onClick}>Random</button>
+            <Link to="/search">Search</Link> | 
+            <Link to="/random">Random</Link>
         </nav>
     )
 }

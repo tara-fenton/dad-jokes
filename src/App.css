@@ -9,7 +9,6 @@ body {
 .App {
   display: grid;
   background-image: url('./images/background.svg');
-  position: relative;
   
   height: 100vh;
   grid-template-rows: .5fr 4fr .5fr;
@@ -26,7 +25,7 @@ header {
   align-content: space-between;
 }
 .logo {
-  width: 80%;
+  width: 75%;
   display: flex;
   color: #3C4F51;
   font-size: 1.5em;
@@ -34,6 +33,13 @@ header {
   align-content: center;
   padding: 20px;
 }
+.nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-right: 10px;
+}
+
 footer {
   grid-area: footer;
   background-color: #A6B491;
@@ -41,12 +47,12 @@ footer {
   justify-content: center;
   align-items: center;
 }
-footer a {
+footer a, nav a {
   text-decoration: none;
   color: #3C4F51;
   margin: 0 10px;
 }
-footer a:hover {
+footer a:hover, nav a:hover {
   text-decoration: underline;
 }
 main {

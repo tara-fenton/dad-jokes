@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { BrowserRouter, Route } from 'react-router-dom';
 import './App.css';
 import RandomJoke from './components/RandomJoke'
 import Search from './components/Search'
@@ -13,78 +14,84 @@ class App extends Component {
     this.state = {
       randomJoke: '',
       jokes: [],
-      term: ''
+      term: '',
     }
     this.randomClick = this.randomClick.bind(this)
     this.searchClick = this.searchClick.bind(this)
     this.handleChange = this.handleChange.bind(this)
-    this.handleNav = this.handleNav.bind(this)
   }
 
   componentDidMount() {
     this.randomAPI()
   }
-  
+
   randomAPI() {
     let api = 'https://icanhazdadjoke.com/'
-    fetch(api, 
-      { headers: {
-        'Accept': 'application/json',
-        'User-Agent': ' My Library (https://github.com/tara-fenton/dad-jokes)'
-      }       
-    }
+    fetch(api,
+      {
+        headers: {
+          'Accept': 'application/json',
+          'User-Agent': ' My Library (https://github.com/tara-fenton/dad-jokes)'
+        }
+      }
     ).then(response => response.json())
-    .then(json => {
-      this.setState({ randomJoke: json.joke})
-    }).catch(e => console.log(e))
+      .then(json => {
+        this.setState({ randomJoke: json.joke })
+      }).catch(e => console.log(e))
   }
 
   searchAPI() {
     let api = `https://icanhazdadjoke.com/search?term=${this.state.term}`
-    fetch(api, 
-      { headers: {
-        'Accept': 'application/json',
-        'User-Agent': ' My Library (https://github.com/tara-fenton/dad-jokes)'
-      }       
-    }
+    fetch(api,
+      {
+        headers: {
+          'Accept': 'application/json',
+          'User-Agent': ' My Library (https://github.com/tara-fenton/dad-jokes)'
+        }
+      }
     ).then(response => response.json())
-    .then(json => {
-      this.setState({ jokes: json.results })
-    }).catch(e => console.log(e))
+      .then(json => {
+        this.setState({ jokes: json.results })
+      }).catch(e => console.log(e))
   }
 
-  randomClick(){
+  randomClick() {
     this.randomAPI()
   }
 
-  searchClick(){
+  searchClick() {
     this.searchAPI()
   }
 
   handleChange(value) {
-    this.setState({ term: value  })
+    this.setState({ term: value })
   }
-  handleNav(value) {
-    console.log("value sent from nav through header ",value)
-  }
+ 
   render() {
     return (
-      <div className="App">
-        <Header view={this.state.view} handleNav={this.handleNav} />
-        <main>
-            <RandomJoke 
-                randomJoke={this.state.randomJoke}
-                handleClick={this.randomClick} />
-            <Search 
-                handleClick={this.searchClick}
-                handleChange={this.handleChange} />
-            <JokesList 
+      <BrowserRouter>
+        <div className="App">
+          <Header />
+          <main>
+            <Route exact path="/random" render={() => <RandomJoke
+              randomJoke={this.state.randomJoke}
+              handleClick={this.randomClick} />} />
+            <Route exact path="/search" render={() => <div><Search
+              handleClick={this.searchClick}
+              handleChange={this.handleChange} />
+              <JokesList
                 jokes={this.state.jokes}
-            />
+              />
+            </div>
+            } />
+
             <div className="pipe"></div>
-        </main>
-        <Footer />
-      </div>
+          </main>
+          <Footer />
+        </div>
+        {/* <Route exact path="/" component={} /> */}
+
+      </BrowserRouter>
     );
   }
 }
