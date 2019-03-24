@@ -18,6 +18,7 @@ class App extends Component {
     this.randomClick = this.randomClick.bind(this)
     this.searchClick = this.searchClick.bind(this)
     this.handleChange = this.handleChange.bind(this)
+    this.handleNav = this.handleNav.bind(this)
   }
 
   componentDidMount() {
@@ -63,11 +64,13 @@ class App extends Component {
   handleChange(value) {
     this.setState({ term: value  })
   }
-
+  handleNav(value) {
+    console.log("value sent from nav through header ",value)
+  }
   render() {
     return (
       <div className="App">
-        <Header />
+        <Header view={this.state.view} handleNav={this.handleNav} />
         <main>
             <RandomJoke 
                 randomJoke={this.state.randomJoke}
