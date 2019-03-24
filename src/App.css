@@ -47,7 +47,7 @@ footer {
   justify-content: center;
   align-items: center;
 }
-footer a, nav a {
+footer a, nav a, .logo a {
   text-decoration: none;
   color: #3C4F51;
   margin: 0 10px;
@@ -67,11 +67,15 @@ main {
   font-size: 2em;
   padding: 30px;
 }
-
+.best {
+  background-image: url('./images/best.svg');
+  background-repeat: no-repeat;
+  width: 200px;
+  height: 200px;
+}
 .pipe {
   background-image: url('./images/pipe.svg');
   background-repeat: no-repeat;
   width: 200px;
-  height: 200px;
-  ;
+  height: 122px;
 }

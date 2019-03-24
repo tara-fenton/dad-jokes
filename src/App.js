@@ -5,6 +5,7 @@ import RandomJoke from './components/RandomJoke'
 import Search from './components/Search'
 import JokesList from './components/JokesList';
 import Header from './components/Header';
+import Main from './components/Main';
 import Footer from './components/Footer';
 
 class App extends Component {
@@ -66,30 +67,36 @@ class App extends Component {
   handleChange(value) {
     this.setState({ term: value })
   }
- 
+
   render() {
     return (
       <BrowserRouter>
         <div className="App">
           <Header />
           <main>
-            <Route exact path="/random" render={() => <RandomJoke
-              randomJoke={this.state.randomJoke}
-              handleClick={this.randomClick} />} />
-            <Route exact path="/search" render={() => <div><Search
-              handleClick={this.searchClick}
-              handleChange={this.handleChange} />
-              <JokesList
-                jokes={this.state.jokes}
-              />
-            </div>
-            } />
 
-            <div className="pipe"></div>
+            <Route exact path="/" render={() => <Main />} />
+
+            <Route exact path="/random" render={() => 
+              <RandomJoke
+                randomJoke={this.state.randomJoke}
+                handleClick={this.randomClick} />} 
+              />
+
+            <Route exact path="/search" render={() => 
+              <div>
+                <Search
+                  handleClick={this.searchClick}
+                  handleChange={this.handleChange} 
+                />
+                <JokesList
+                  jokes={this.state.jokes}
+                />
+              </div>
+            } />
           </main>
           <Footer />
         </div>
-        {/* <Route exact path="/" component={} /> */}
 
       </BrowserRouter>
     );
