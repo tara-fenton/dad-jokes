@@ -78,6 +78,7 @@ class App extends Component {
             <JokesList 
                 jokes={this.state.jokes}
             />
+            <div className="pipe"></div>
         </main>
         <Footer />
       </div>

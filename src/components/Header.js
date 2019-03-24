@@ -4,7 +4,8 @@ function Header() {
 
     return (
         <header>
-            header
+            <div className="logo">Dad Jokes</div>
+            <div>Nav</div>
         </header>
     )
 }
