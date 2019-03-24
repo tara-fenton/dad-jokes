@@ -13,7 +13,7 @@ function Search(props) {
         <div>
             <form onSubmit={onSubmit}>
                 <input type="text" onChange={onChange}/>
-                <button>Search</button>
+                <button className="search">Search</button>
             </form>
         </div>
     )

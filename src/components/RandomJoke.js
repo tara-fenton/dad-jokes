@@ -5,7 +5,7 @@ function RandomJoke(props) {
         props.handleClick()
     }
     return (
-        <div>
+        <div className="random">
             {props.randomJoke}
             <button onClick={onClick}>Random Joke</button>
         </div>

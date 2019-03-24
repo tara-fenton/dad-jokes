@@ -65,7 +65,7 @@ main {
   align-items: center;
   font-weight: bold;
   font-size: 2em;
-  padding: 30px;
+  padding: 50px;
 }
 .best {
   background-image: url('./images/best.svg');
@@ -79,3 +79,32 @@ main {
   width: 200px;
   height: 122px;
 }
+.random {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.random button {
+  margin: 40px;
+  width: 40%;
+}
+button {
+  outline: none;
+  cursor: pointer;
+  font-size: .7em;
+  color: #3C4F51;
+  background-color: #A6B491;
+  font-family: 'Andada', 'Courier New', Courier, monospace; 
+}
+input[type=text] {
+  padding: 2px 10px;
+  height: 2em;
+  font-size: .7em;
+  color: #3C4F51;
+  font-family: 'Andada', 'Courier New', Courier, monospace; 
+}
+.search {
+  height: 2.25em;
+  margin: 0 20px;
+}
+
