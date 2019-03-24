@@ -37,7 +37,7 @@ class App extends Component {
       <div className="App">
         <RandomJoke 
             randomJoke={this.state.randomJoke}
-            handleClick={console.log('hi')} />
+            handleClick={this.randomClick} />
       </div>
     );
   }

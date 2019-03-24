@@ -1,13 +1,13 @@
 import React from 'react'
 
 function RandomJoke(props) {
-    function test() {
-console.log('testtttt')
+    function onClick() {
+        props.handleClick()
     }
     return (
         <div>
             {props.randomJoke}
-            <button onClick={test}>Random Joke</button>
+            <button onClick={onClick}>Random Joke</button>
         </div>
     )
 }
