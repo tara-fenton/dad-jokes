@@ -20,7 +20,8 @@ class App extends Component {
     let api = 'https://icanhazdadjoke.com/'
     fetch(api, 
       { headers: {
-        'Accept': 'application/json'
+        'Accept': 'application/json',
+        'User-Agent': ' My Library (https://github.com/tara-fenton/dad-jokes)'
       }       
     }
     ).then(response => response.json())
