@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import RandomJoke from './components/RandomJoke'
 import Search from './components/Search'
+import JokesList from './components/JokesList';
 
 class App extends Component {
 
@@ -68,9 +69,11 @@ class App extends Component {
             randomJoke={this.state.randomJoke}
             handleClick={this.randomClick} />
         <Search 
-            jokes={this.state.jokes}
             handleClick={this.searchClick}
             handleChange={this.handleChange} />
+        <JokesList 
+             jokes={this.state.jokes}
+        />
       </div>
     );
   }
