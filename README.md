@@ -3,7 +3,7 @@
 
 ## Project Description
 
-Dad Jokes for a laugh
+[Dad Jokes](http://fortunate-waves.surge.sh/) an app built for a laugh using React and an API
 
 ## Wireframes
 
@@ -25,54 +25,87 @@ Upload images of wireframe to cloudinary and add the link here with a descriptio
 
 ## React Component Hierarchy
 
-App > Header
+App > Header > Nav
+
 App > Search > JokesList > JokeItem
+
 App > RandomJoke
+
 App > Footer
 
-## Functional Components
-##### Writing out your components and its descriptions isn't a required part of the proposal but can be helpful.
+### State Components
 
-State Components - App
-Stateless Components - Search, JokesList, JokeItem, RandomJoke, Header, Footer
+App
+
+### Functional Components
+Search, JokesList, JokeItem, RandomJoke, Header, Nav, Footer
 
 | Component | Description | 
 | --- | :---: |  
 | Header | This will render the header include the nav | 
-| Footer | This will render the header include the nav | 
+| Nav | This will render the nav |
+| Search | This will render the search input text and button | 
+| JokesList | This will render the list of jokes returned from search |
+| JokeItem | This will render the joke item in the list | 
+| RandomJoke | This will render the random joke with button to randomize joke | 
+| Footer | This will render the footer include the link to github and api | 
 
-
-Time frames are also key in the development cycle.  You have limited time to code all phases of the game.  Your estimates can then be used to evalute game possibilities based on time needed and the actual time you have before game must be submitted. It's always best to pad the time by a few hours so that you account for the unknown so add and additional hour or two to each component to play it safe.
 
 | Component | Priority | Estimated Time | Time Invetsted | Actual Time |
 | --- | :---: |  :---: | :---: | :---: |
-| Adding Form | H | 3hrs| 3.5hrs | 3.5hrs |
-| Working with API | H | 3hrs| 2.5hrs | 2.5hrs |
-| Total | H | 6hrs| 5hrs | 5hrs |
+| Set up app | H | .5hrs| .5hrs | .5hrs |
+| Random | H | 2hrs| 2.5hrs | 2.5hrs |
+| Search Form | H | 3hrs| 3.5hrs | 2.5hrs |
+| Footer and Header | H | 3hrs| 3.5hrs | 1.5hrs |
+| React Router | H | 2hrs| 1.5hrs | 1.5hrs |
+| Style | H | 2hrs| 2.5hrs | 2.5hrs |
+| Total | H | 12.5hrs| 14hrs | 11hrs |
 
 ## Helper Functions
-Helper functions should be generic enought that they can be reused in other applications. Use this section to document all helper functions that fall into this category.
 
 | Function | Description | 
 | --- | :---: |  
-| Capitalize | This will capitalize the first letter in a string of text | 
+| Footer | This component could be use in playground projects | 
 
 ## Additional Libraries
  
-[ICANHAZDADJOKE API](https://icanhazdadjoke.com/api)
+[icanhazdadjoke API](https://icanhazdadjoke.com/api)
 ## Code Snippet
 
-Use this section to include a brief code snippet of functionality that you are proud of an a brief description  
-
-```
-function reverse(string) {
-	// here is the code to reverse a string of text
+All state for app is contained in App.js
+```javascript
+this.state = {
+	randomJoke: '',
+	jokes: [],
+	term: ''
 }
 ```
 
 ## Issues and Resolutions
  Use this section to list of all major issues encountered and their resolution.
 
-#### SAMPLE.....
-**ERROR**: app.js:34 Uncaught SyntaxError: Unexpected identifier                                
-**RESOLUTION**: Missing comma after first object in sources {} object
+**ERROR**: Unexpected token < in JSON at position 0                               
+**RESOLUTION**: 
+https://daveceddia.com/unexpected-token-in-json-at-position-0/
+
+Sent request with header to accept json data
+```javascript
+randomAPI() {
+    let api = 'https://icanhazdadjoke.com/'
+    fetch(api,
+      {
+        headers: {
+          'Accept': 'application/json',
+          'User-Agent': ' My Library (https://github.com/tara-fenton/dad-jokes)'
+        }
+      }
+    ).then(response => response.json())
+      .then(json => {
+        this.setState({ randomJoke: json.joke })
+      }).catch(e => console.log(e))
+  }
+  ```
+
+  logic setting up button events [testing events](https://github.com/tara-fenton/dad-jokes/commit/1984c6e5eb6a2cbd91f83a00b224d2f0c8fddc55)
+
+   logic setting up search events [testing search events](https://github.com/tara-fenton/dad-jokes/commit/7726cea8f60cb4c5410cf5964d5ebde5b59485ed)

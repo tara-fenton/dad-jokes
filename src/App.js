@@ -15,7 +15,7 @@ class App extends Component {
     this.state = {
       randomJoke: '',
       jokes: [],
-      term: '',
+      term: ''
     }
     this.randomClick = this.randomClick.bind(this)
     this.searchClick = this.searchClick.bind(this)
