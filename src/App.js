@@ -27,10 +27,17 @@ class App extends Component {
       this.setState({ randomJoke: json.joke})
     }).catch(e => console.log(e))
   }
+
+  randomClick(){
+    console.log('click')
+  }
+
   render() {
     return (
       <div className="App">
-        <RandomJoke randomJoke={this.state.randomJoke} />
+        <RandomJoke 
+            randomJoke={this.state.randomJoke}
+            handleClick={console.log('hi')} />
       </div>
     );
   }
