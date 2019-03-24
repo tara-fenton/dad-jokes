@@ -9,6 +9,7 @@ class App extends Component {
     this.state = {
       randomJoke: ''
     }
+    this.randomClick = this.randomClick.bind(this)
   }
 
   componentDidMount() {
@@ -16,7 +17,7 @@ class App extends Component {
   }
   
   randomAPI() {
-    let api = 'https://icanhazdadjoke.com/?callback=foo'
+    let api = 'https://icanhazdadjoke.com/'
     fetch(api, 
       { headers: {
         'Accept': 'application/json'
@@ -29,7 +30,7 @@ class App extends Component {
   }
 
   randomClick(){
-    console.log('click')
+    this.randomAPI()
   }
 
   render() {
