@@ -4,6 +4,13 @@ import RandomJoke from './components/RandomJoke'
 
 class App extends Component {
 
+  constructor() {
+    super()
+    this.state = {
+      randomJoke: ''
+    }
+  }
+
   componentDidMount() {
     this.randomAPI()
   }
@@ -17,13 +24,13 @@ class App extends Component {
     }
     ).then(response => response.json())
     .then(json => {
-      console.log(json)
+      this.setState({ randomJoke: json.joke})
     }).catch(e => console.log(e))
   }
   render() {
     return (
       <div className="App">
-        <RandomJoke />
+        <RandomJoke randomJoke={this.state.randomJoke} />
       </div>
     );
   }

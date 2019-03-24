@@ -1,9 +1,9 @@
 import React from 'react'
 
-function RandomJoke() {
+function RandomJoke(props) {
     return (
         <div>
-            hi
+            {props.randomJoke}
         </div>
     )
 }
