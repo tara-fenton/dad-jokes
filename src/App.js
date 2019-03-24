@@ -9,10 +9,12 @@ class App extends Component {
     super()
     this.state = {
       randomJoke: '',
-      jokes: []
+      jokes: [],
+      term: ''
     }
     this.randomClick = this.randomClick.bind(this)
     this.searchClick = this.searchClick.bind(this)
+    this.handleChange = this.handleChange.bind(this)
   }
 
   componentDidMount() {
@@ -34,7 +36,7 @@ class App extends Component {
   }
 
   searchAPI() {
-    let api = 'https://icanhazdadjoke.com/search?term=hipster'
+    let api = `https://icanhazdadjoke.com/search?term=${this.state.term}`
     fetch(api, 
       { headers: {
         'Accept': 'application/json',
@@ -55,6 +57,10 @@ class App extends Component {
     this.searchAPI()
   }
 
+  handleChange(value) {
+    this.setState({ term: value  })
+  }
+
   render() {
     return (
       <div className="App">
@@ -63,7 +69,8 @@ class App extends Component {
             handleClick={this.randomClick} />
         <Search 
             jokes={this.state.jokes}
-            handleClick={this.searchClick} />
+            handleClick={this.searchClick}
+            handleChange={this.handleChange} />
       </div>
     );
   }

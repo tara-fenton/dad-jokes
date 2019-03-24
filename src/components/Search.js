@@ -6,10 +6,13 @@ function Search(props) {
         e.preventDefault()
         props.handleClick()
     }
+    function onChange(e){
+        props.handleChange(e.target.value)
+    }
     return (
         <div>
             <form onSubmit={onSubmit}>
-                <input type="text" />
+                <input type="text" onChange={onChange}/>
                 <button>Search</button>
             </form>
         </div>
