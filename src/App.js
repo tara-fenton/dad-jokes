@@ -3,6 +3,8 @@ import './App.css';
 import RandomJoke from './components/RandomJoke'
 import Search from './components/Search'
 import JokesList from './components/JokesList';
+import Header from './components/Header';
+import Footer from './components/Footer';
 
 class App extends Component {
 
@@ -65,15 +67,19 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <RandomJoke 
-            randomJoke={this.state.randomJoke}
-            handleClick={this.randomClick} />
-        <Search 
-            handleClick={this.searchClick}
-            handleChange={this.handleChange} />
-        <JokesList 
-             jokes={this.state.jokes}
-        />
+        <Header />
+        <main>
+            <RandomJoke 
+                randomJoke={this.state.randomJoke}
+                handleClick={this.randomClick} />
+            <Search 
+                handleClick={this.searchClick}
+                handleChange={this.handleChange} />
+            <JokesList 
+                jokes={this.state.jokes}
+            />
+        </main>
+        <Footer />
       </div>
     );
   }

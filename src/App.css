@@ -1,3 +1,28 @@
+body {
+  font-family: 'Courier New', Courier, monospace; 
+}
+
 .App {
-  text-align: center;
+  display: grid;
+  height: 100vh;
+  grid-template-rows: .5fr 4fr .5fr;
+  
+  grid-template-areas: "header"
+                       "main"
+                       "footer";
+}
+
+header {
+  grid-area: header;
+  background-color: aquamarine;
+}
+
+footer {
+  grid-area: footer;
+  background-color: aquamarine;
+}
+
+main {
+  grid-area: main;
+  background-color: salmon;
 }
