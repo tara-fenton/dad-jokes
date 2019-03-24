@@ -4,7 +4,6 @@ function Search(props) {
 
     function onSubmit(e){
         e.preventDefault()
-        console.log('onsubmit')
         props.handleClick()
     }
     return (

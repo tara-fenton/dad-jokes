@@ -43,7 +43,6 @@ class App extends Component {
     }
     ).then(response => response.json())
     .then(json => {
-      console.log(json)
       this.setState({ jokes: json.results })
     }).catch(e => console.log(e))
   }
@@ -53,7 +52,6 @@ class App extends Component {
   }
 
   searchClick(){
-    console.log('search clicked ')
     this.searchAPI()
   }
 
