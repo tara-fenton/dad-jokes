@@ -4,7 +4,7 @@ function Footer() {
 
     return (
         <footer>
-            footer
+            <a href="https://github.com/tara-fenton/dad-jokes">GitHub</a> | <a href="https://icanhazdadjoke.com">API</a>
         </footer>
     )
 }
